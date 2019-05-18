@@ -140,7 +140,9 @@ UIWebViewDelegate > {
 }
 
 - (NSURLRequest *)getJavaScriptFileURLRequest {
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    
+    NSString *bundlePath = [[NSBundle bundleForClass:[self  class]].resourcePath stringByAppendingPathComponent:@"/AAChartKitLib.bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
     NSString *webPath = [bundle pathForResource:@"AAChartView"
                                          ofType:@"html"
                                     inDirectory:@"AAJSFiles.bundle"];
